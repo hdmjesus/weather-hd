@@ -1,7 +1,7 @@
 {
   "name": "weather-hd",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicacion del tiempo",
   "main": "index.js",
   "keywords": [],
   "author": "",
