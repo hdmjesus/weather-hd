@@ -66,7 +66,9 @@ const config = {
       template: './public/index.html',
       filename: './index.html',
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css',
+    }),
   ],
 };
 

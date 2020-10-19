@@ -3,10 +3,13 @@ import React from 'react';
 import WeatherPrincipal from '../component/WeatherPrincipal';
 import WeatherDescription from '../component/WeatherDescription';
 import NextDays from '../component/NextDays';
-import Hightlights from '../component/Hightlights';
-import DetailsHighligths from '../component/DetailsHighligths';
 import DetailsNextDays from '../component/DetailsNextDays';
-
+import Hightlights from '../component/Hightlights';
+import Wind from '../component/Wind';
+import Humidity from '../component/Humidity';
+import AirPressure from '../component/AirPressure';
+import Visibility from '../component/Visibility';
+import Footer from '../component/Footer';
 const Home = () => {
   return (
     <>
@@ -15,10 +18,20 @@ const Home = () => {
       <WeatherDescription>
         <NextDays>
           <DetailsNextDays />
+          <DetailsNextDays />
+          <DetailsNextDays />
+          <DetailsNextDays />
+          <DetailsNextDays />
         </NextDays>
+
         <Hightlights>
-          <DetailsHighligths />
+          <Wind />
+          <Humidity />
+          <Visibility />
+          <AirPressure />
         </Hightlights>
+
+        <Footer />
       </WeatherDescription>
     </>
   );

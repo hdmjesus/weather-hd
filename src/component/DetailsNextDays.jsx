@@ -1,15 +1,16 @@
 import React from 'react';
-
+import weatherImg from '../Assets/img/Clear.webp';
 const DetailsNextDays = () => {
   return (
-    <article>
-      <figure>
-        <h2>Tomorrow</h2>
-        <img src='' alt='soleado' />
+    <article className='dia flex flex-col justify-around max-w-10 text-center p-3 bg-primary m-1 h-40'>
+      <h2 className=''>Tomorrow</h2>
+      <figure className='w-12 m-auto'>
+        <img className='m-auto' src={weatherImg} alt='soleado' />
       </figure>
-      <div>
-        <p>
-          <span>16º C</span> <span>12º C</span>
+      <div className=''>
+        <p className='text-sm'>
+          <span className='inline-block'>16°C</span> {'      '}
+          <span className='inline-block text-fontD ml-1'>12°C</span>
         </p>
       </div>
     </article>
