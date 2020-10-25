@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import LightCloud from '../Assets/img/Shower.webp';
 
 const WeatherPrincipal = () => {

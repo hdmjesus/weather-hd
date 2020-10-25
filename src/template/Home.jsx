@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { weatherContext } from '../context/weatherContext';
 
 import WeatherPrincipal from '../component/WeatherPrincipal';
 import WeatherDescription from '../component/WeatherDescription';
@@ -10,11 +11,11 @@ import Humidity from '../component/Humidity';
 import AirPressure from '../component/AirPressure';
 import Visibility from '../component/Visibility';
 import Footer from '../component/Footer';
+
 const Home = () => {
   return (
     <>
       <WeatherPrincipal />
-
       <WeatherDescription>
         <NextDays>
           <DetailsNextDays />
@@ -23,16 +24,15 @@ const Home = () => {
           <DetailsNextDays />
           <DetailsNextDays />
         </NextDays>
-
-        <Hightlights>
-          <Wind />
-          <Humidity />
-          <Visibility />
-          <AirPressure />
-        </Hightlights>
-
-        <Footer />
       </WeatherDescription>
+      <Hightlights>
+        <Wind />
+        <Humidity />
+        <Visibility />
+        <AirPressure />
+      </Hightlights>
+
+      <Footer />
     </>
   );
 };
