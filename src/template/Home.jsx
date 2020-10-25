@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { weatherContext } from '../context/weatherContext';
 
+import Find from '../component/Find';
 import WeatherPrincipal from '../component/WeatherPrincipal';
 import WeatherDescription from '../component/WeatherDescription';
 import NextDays from '../component/NextDays';
@@ -15,7 +16,9 @@ import Footer from '../component/Footer';
 const Home = () => {
   return (
     <>
-      <WeatherPrincipal />
+      <WeatherPrincipal>
+        <Find />
+      </WeatherPrincipal>
       <WeatherDescription>
         <NextDays>
           <DetailsNextDays />
