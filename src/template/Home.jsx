@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { weatherContext } from '../context/weatherContext';
 
 import Find from '../component/Find';
 import WeatherPrincipal from '../component/WeatherPrincipal';
@@ -14,6 +13,18 @@ import Visibility from '../component/Visibility';
 import Footer from '../component/Footer';
 
 const Home = () => {
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      `http://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=caracas`
+    )
+      .then((response) => response.json())
+      .then((data) => setWeather(data.location))
+      .catch((err) => console.log(err));
+  }, []);
+  console.log(weather);
+
   return (
     <>
       <WeatherPrincipal>
@@ -27,13 +38,13 @@ const Home = () => {
           <DetailsNextDays />
           <DetailsNextDays />
         </NextDays>
+        <Hightlights>
+          <Wind />
+          <Humidity />
+          <Visibility />
+          <AirPressure />
+        </Hightlights>
       </WeatherDescription>
-      <Hightlights>
-        <Wind />
-        <Humidity />
-        <Visibility />
-        <AirPressure />
-      </Hightlights>
 
       <Footer />
     </>

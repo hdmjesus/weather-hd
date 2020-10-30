@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
 import LightCloud from '../Assets/img/Shower.webp';
 
-const WeatherPrincipal = ({ children }) => {
+function Vista() {
   return (
     <>
-      <section className='principal  min-h-screen bg-primary'>
+      <section className=''>
         <article className='px-6 py-2'>
           <div className='flex justify-between items-center'>
             <button className='bg-gray-700 hover:bg-gray-600 text-white  text-sm py-1 px-4 rounded inline-flex items-center h-8'>
@@ -45,14 +45,9 @@ const WeatherPrincipal = ({ children }) => {
             </p>
           </article>
         </article>
-        <article
-          className='absolute top-0 bg-primary w-full h-screen z-20'
-          id='busqueda'>
-          {children}
-        </article>
       </section>
     </>
   );
-};
+}
 
-export default WeatherPrincipal;
+export default Vista;

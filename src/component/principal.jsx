@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 
-function Find(props) {
+function Principal({ children }) {
   const [city, setCity] = useState(null);
   const [weather, setWeather] = useState(null);
 
@@ -8,9 +8,8 @@ function Find(props) {
     e.preventDefault();
     const ciudad = document.getElementById('city');
     setCity(ciudad.value);
-    console.log(props);
   }
-
+  console.log(city);
   let inputContext = React.createContext(city);
 
   function displayHiden() {
@@ -18,7 +17,7 @@ function Find(props) {
   }
 
   return (
-    <>
+    <section className='absolute top-0 left-0 right-0 bg-primary w-full h-screen z-40'>
       <div className='flex justify-end p-5 '>
         <button onClick={displayHiden}>
           <span className='material-icons text-3xl text-fontC'>
@@ -56,9 +55,11 @@ function Find(props) {
           <option>Buenos aires</option>
         </datalist>
       </form>
-    </>
+      <article className='principal absolute top-0 left-0 right-0 min-h-screen bg-primary z-0'>
+        {children}
+      </article>
+    </section>
   );
 }
 
-// export default Find;
-export default Find;
+export default Principal;

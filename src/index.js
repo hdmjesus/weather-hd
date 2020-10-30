@@ -7,9 +7,4 @@ import Home from './template/Home';
 import { WeatherProvider } from './context/weatherContext';
 //
 
-ReactDOM.render(
-  <WeatherProvider>
-    <Home></Home>
-  </WeatherProvider>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Home></Home>, document.getElementById('root'));
