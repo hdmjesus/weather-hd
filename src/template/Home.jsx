@@ -6,29 +6,40 @@ import WeatherDescription from '../component/WeatherDescription';
 import NextDays from '../component/NextDays';
 import DetailsNextDays from '../component/DetailsNextDays';
 import Hightlights from '../component/Hightlights';
-import Wind from '../component/Wind';
-import Humidity from '../component/Humidity';
-import AirPressure from '../component/AirPressure';
-import Visibility from '../component/Visibility';
 import Footer from '../component/Footer';
 
 const Home = () => {
-  const [weather, setWeather] = useState(null);
+  const [weatherContent, setWeatherContent] = useState({});
+  const [weatherLocation, setWeatherLocation] = useState({});
+  const [weatherCondition, setweatherCondition] = useState();
+
+  async function getData() {
+    const ciudad = document.getElementById('city').value;
+    const URL = `http://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}}`;
+    let response = await fetch(URL);
+    let data = await response.json();
+    setWeatherContent(data.current);
+    setWeatherLocation(data.location);
+    setweatherCondition(data.current.condition.text);
+    console.log(weatherLocation);
+    console.log(ciudad);
+  }
+  function hiddenModal() {
+    const $modalSearch = document.getElementById('modal-search');
+    $modalSearch.classList.toggle('modal-off');
+  }
 
   useEffect(() => {
-    fetch(
-      `http://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=caracas`
-    )
-      .then((response) => response.json())
-      .then((data) => setWeather(data.location))
-      .catch((err) => console.log(err));
+    // getData();
   }, []);
-  console.log(weather);
-
   return (
     <>
-      <WeatherPrincipal>
-        <Find />
+      <WeatherPrincipal
+        location={weatherLocation}
+        contenido={weatherContent}
+        condition={weatherCondition}
+        hidden={hiddenModal}>
+        <Find click={getData} hidden={hiddenModal} />
       </WeatherPrincipal>
       <WeatherDescription>
         <NextDays>
@@ -38,12 +49,7 @@ const Home = () => {
           <DetailsNextDays />
           <DetailsNextDays />
         </NextDays>
-        <Hightlights>
-          <Wind />
-          <Humidity />
-          <Visibility />
-          <AirPressure />
-        </Hightlights>
+        <Hightlights contenido={weatherContent} />
       </WeatherDescription>
 
       <Footer />

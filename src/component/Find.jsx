@@ -1,26 +1,22 @@
 import React, { useEffect, useState, useContext } from 'react';
 
 function Find(props) {
-  const [city, setCity] = useState(null);
-  const [weather, setWeather] = useState(null);
-
   function handleChangeCity(e) {
     e.preventDefault();
-    const ciudad = document.getElementById('city');
-    setCity(ciudad.value);
-    console.log(props);
+
+    props.click();
+    props.hidden();
   }
 
-  let inputContext = React.createContext(city);
-
-  function displayHiden() {
-    // find.classList.add('hiddenB');
+  function hiddenModal() {
+    props.hidden();
   }
+  useEffect(() => {}, []);
 
   return (
     <>
       <div className='flex justify-end p-5 '>
-        <button onClick={displayHiden}>
+        <button onClick={hiddenModal}>
           <span className='material-icons text-3xl text-fontC'>
             highlight_off
           </span>
@@ -60,5 +56,4 @@ function Find(props) {
   );
 }
 
-// export default Find;
 export default Find;

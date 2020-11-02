@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
-const Humidity = () => {
+const Humidity = (props) => {
+  const [humidity, setHumidity] = useState(null);
+  useEffect(() => {
+    setHumidity(props.parametros.contenido.humidity);
+  });
+
   return (
     <article className='parametros bg-primary text-center flex flex-col justify-center'>
       <div>
         <h3 className=''>Humidity</h3>
         <p className='font-bold text-6xl'>
-          84<span className='text-4xl font-medium'>%</span>{' '}
+          {humidity}
+          <span className='text-4xl font-medium'>%</span>{' '}
         </p>
         <div className='w-8/12 m-auto'>
           <div className='flex justify-between font-bold'>

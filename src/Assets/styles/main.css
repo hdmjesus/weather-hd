@@ -71,3 +71,7 @@
 .inputCity {
   border: 1px solid #fff;
 }
+
+.modal-off {
+  left: -1000px;
+}
