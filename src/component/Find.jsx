@@ -26,12 +26,14 @@ function Find(props) {
         <div className=' inputCity w-10/12 border-gray-100 p-2 flex items-center'>
           {' '}
           <span className='material-icons text-fontC'>search</span>
+          <label htmlFor='city'></label>
           <input
             className='bg-transparent w-11/12 pl-5 text-fontC outline-none'
             name='city'
             id='city'
             list='citys'
             placeholder='City'
+            required
           />
         </div>
         <input

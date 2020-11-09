@@ -4,6 +4,52 @@ const Humidity = (props) => {
   const [humidity, setHumidity] = useState(null);
   useEffect(() => {
     setHumidity(props.parametros.contenido.humidity);
+    const $barHumidity = document.getElementById('percent');
+
+    function humidityBarCheck() {
+      if (humidity <= 25) {
+        $barHumidity.classList.remove(
+          'onehundred',
+          'higher-seventyfive',
+          'between-fifty-seventyfive',
+          'between-twentyfive-fifty'
+        );
+        $barHumidity.classList.add('less-twenty-five');
+      } else if (humidity >= 25 && humidity <= 50) {
+        $barHumidity.classList.remove(
+          'onehundred',
+          'higher-seventyfive',
+          'between-fifty-seventyfive',
+          'less-twenty-five'
+        );
+        $barHumidity.classList.add('between-twentyfive-fifty');
+      } else if (humidity >= 50 && humidity <= 75) {
+        $barHumidity.classList.remove(
+          'onehundred',
+          'higher-seventyfive',
+          'between-twentyfive-fifty',
+          'less-twenty-five'
+        );
+        $barHumidity.classList.add('between-fifty-seventyfive');
+      } else if (humidity >= 75 && humidity <= 99) {
+        $barHumidity.classList.remove(
+          'onehundred',
+          'between-fifty-seventyfive',
+          'between-twentyfive-fifty',
+          'less-twenty-five'
+        );
+        $barHumidity.classList.add('higher-seventyfive');
+      } else if (humidity == 100) {
+        $barHumidity.classList.remove(
+          'higher-seventyfive',
+          'between-fifty-seventyfive',
+          'between-twentyfive-fifty',
+          'less-twenty-five'
+        );
+        $barHumidity.classList.add('onehundred');
+      }
+    }
+    humidityBarCheck();
   });
 
   return (
@@ -21,7 +67,9 @@ const Humidity = (props) => {
             <span>100</span>
           </div>
           <div className='bar h-3 w-full bg-gray-400 rounded-full mt-3'>
-            <div className='percent h-3 w-4/5 rounded-full bg-yellow-400'></div>
+            <div
+              className='percent h-3 rounded-full bg-yellow-400'
+              id='percent'></div>
           </div>
         </div>
       </div>

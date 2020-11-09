@@ -75,3 +75,23 @@
 .modal-off {
   left: -1000px;
 }
+
+.less-twenty-five {
+  @apply w-1/5;
+}
+
+.between-twentyfive-fifty {
+  @apply w-2/5;
+}
+
+.between-fifty-seventyfive {
+  @apply w-3/5;
+}
+
+.higher-seventyfive {
+  @apply w-5/6;
+}
+
+.onehundred {
+  @apply w-full;
+}
