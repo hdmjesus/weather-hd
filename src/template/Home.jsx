@@ -16,7 +16,7 @@ const Home = () => {
   const [weatherTomorrow, setWeathertomorrow] = useState([]);
 
   async function getData() {
-    const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=Berlin&days=10/:splat 200`;
+    const URLDAYS = `https://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=Berlin&days=10`;
     let response = await fetch(URLDAYS);
     let data = await response.json();
     setWeatherContent(data.current);
@@ -32,7 +32,7 @@ const Home = () => {
     if (ciudad.length === 0) {
       console.log('intente agregar una ciudad');
     } else {
-      const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}&days=10/:splat 200`;
+      const URLDAYS = `https://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}&days=10`;
       let response = await fetch(URLDAYS);
       let data = await response.json();
       setWeatherContent(data.current);
@@ -52,7 +52,7 @@ const Home = () => {
     async function success(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      const URL = `http://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=${latitude} ${longitude}/:splat 200!`;
+      const URL = `https://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=${latitude} ${longitude}/:splat 200!`;
       let response = await fetch(URL);
       let data = await response.json();
       setWeatherContent(data.current);
