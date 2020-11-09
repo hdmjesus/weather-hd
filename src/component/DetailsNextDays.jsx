@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import weatherImg from '../Assets/img/Clear.webp';
 
-const DetailsNextDays = () => {
+const DetailsNextDays = (props) => {
+  console.log(props);
   return (
     <article className='dia flex flex-col justify-around max-w-10 text-center p-3 bg-primary m-1 h-40'>
       <h2 className=''></h2>

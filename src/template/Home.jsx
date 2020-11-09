@@ -13,15 +13,18 @@ const Home = () => {
   const [weatherLocation, setWeatherLocation] = useState({});
   const [weatherCondition, setweatherCondition] = useState();
   const [weatherConditionImg, setweatherConditionImg] = useState();
+  const [weatherTomorrow, setWeathertomorrow] = useState([]);
 
   async function getData() {
-    const URL = `http://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=Berlin`;
-    let response = await fetch(URL);
+    const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=Berlin&days=10`;
+    let response = await fetch(URLDAYS);
     let data = await response.json();
     setWeatherContent(data.current);
     setWeatherLocation(data.location);
     setweatherCondition(data.current.condition.text);
     setweatherConditionImg(data.current.condition.icon);
+    setWeathertomorrow(data.forecast.forecastday);
+    console.log(weatherTomorrow);
   }
 
   async function getDataInput() {
@@ -29,13 +32,14 @@ const Home = () => {
     if (ciudad.length === 0) {
       console.log('intente agregar una ciudad');
     } else {
-      const URL = `http://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}`;
-      let response = await fetch(URL);
+      const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}&days=10`;
+      let response = await fetch(URLDAYS);
       let data = await response.json();
       setWeatherContent(data.current);
       setWeatherLocation(data.location);
       setweatherCondition(data.current.condition.text);
       setweatherConditionImg(data.current.condition.icon);
+      setWeathertomorrow(data.forecast.forecastday);
     }
   }
 
@@ -85,8 +89,9 @@ const Home = () => {
       </WeatherPrincipal>
       <WeatherDescription>
         <NextDays>
-          <DetailsNextDays />
-          <DetailsNextDays />
+          {weatherTomorrow.map((day) => {
+            <DetailsNextDays></DetailsNextDays>;
+          })}
         </NextDays>
         <Hightlights contenido={weatherContent} />
       </WeatherDescription>
