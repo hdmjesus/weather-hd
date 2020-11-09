@@ -16,7 +16,7 @@ const Home = () => {
   const [weatherTomorrow, setWeathertomorrow] = useState([]);
 
   async function getData() {
-    const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=Berlin&days=10/:splat 200!`;
+    const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=Berlin&days=10/:splat20200`;
     let response = await fetch(URLDAYS);
     let data = await response.json();
     setWeatherContent(data.current);
@@ -32,7 +32,7 @@ const Home = () => {
     if (ciudad.length === 0) {
       console.log('intente agregar una ciudad');
     } else {
-      const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}&days=10/:splat 200!`;
+      const URLDAYS = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${ciudad}&days=10/:splat20200!`;
       let response = await fetch(URLDAYS);
       let data = await response.json();
       setWeatherContent(data.current);
