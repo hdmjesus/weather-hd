@@ -25,15 +25,15 @@ module.exports = {
       gridTemplateColumns: {
         // Simple 16 column grid
         '2days': 'repeat(2, minmax(0, 120px))',
+        '3days': 'repeat(3, minmax(0, 120px))',
       },
       gridTemplateRows: {
         // Simple 8 row grid
-        2: 'repeat(2, minmax(0, 204px))',
+        2: 'repeat(2, minmax(0, 160px))',
       },
       gridAutoRows: {
-          'min': 'minmax(0, 160px)',
-        }
-
+        min: 'minmax(0, 160px)',
+      },
     },
   },
   variants: {},

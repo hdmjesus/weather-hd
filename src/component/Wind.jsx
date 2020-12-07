@@ -11,7 +11,7 @@ const Wind = (props) => {
     <article className='parametros bg-primary text-center flex flex-col justify-center'>
       <div>
         <h3 className=''>Wind Status</h3>
-        <p className='font-bold text-6xl'>
+        <p className='font-bold text-4xl'>
           {wind} <span className='text-4xl font-medium'>mph</span>{' '}
         </p>
       </div>

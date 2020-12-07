@@ -9,7 +9,7 @@ const Visibility = (props) => {
     <article className='parametros bg-primary text-center flex flex-col justify-center'>
       <div>
         <h3 className=''>Visibility</h3>
-        <p className='font-bold text-6xl'>
+        <p className='font-bold text-4xl'>
           {visibility} <span className='text-4xl font-medium'>miles</span>{' '}
         </p>
       </div>
