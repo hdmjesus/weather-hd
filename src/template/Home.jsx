@@ -52,7 +52,7 @@ const Home = () => {
     async function success(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      const URL = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${latitude} ${longitude}&days=10`;
+      const URL = `https://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${latitude} ${longitude}&days=10`;
       let response = await fetch(URL);
       let data = await response.json();
       setWeatherContent(data.current);
