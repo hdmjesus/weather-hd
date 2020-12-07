@@ -6,6 +6,7 @@ import WeatherDescription from '../component/WeatherDescription';
 import NextDays from '../component/NextDays';
 import DetailsNextDays from '../component/DetailsNextDays';
 import Hightlights from '../component/Hightlights';
+
 import Footer from '../component/Footer';
 
 const Home = () => {
@@ -24,7 +25,6 @@ const Home = () => {
     setweatherCondition(data.current.condition.text);
     setweatherConditionImg(data.current.condition.icon);
     setWeathertomorrow(data.forecast.forecastday);
-    console.log(weatherTomorrow);
   }
 
   async function getDataInput() {
@@ -52,13 +52,14 @@ const Home = () => {
     async function success(position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      const URL = `https://api.weatherapi.com/v1/current.json?key=561e9f9cfa6141c98d820420202310&q=${latitude} ${longitude}/:splat 200!`;
+      const URL = `http://api.weatherapi.com/v1/forecast.json?key=561e9f9cfa6141c98d820420202310&q=${latitude} ${longitude}&days=10`;
       let response = await fetch(URL);
       let data = await response.json();
       setWeatherContent(data.current);
       setWeatherLocation(data.location);
       setweatherCondition(data.current.condition.text);
       setweatherConditionImg(data.current.condition.icon);
+      setWeathertomorrow(data.forecast.forecastday);
     }
     navigator.geolocation.getCurrentPosition(success);
   }
@@ -88,15 +89,10 @@ const Home = () => {
         <Find click={getDataInput} hidden={hiddenModal} />
       </WeatherPrincipal>
       <WeatherDescription>
-        <NextDays>
-          {weatherTomorrow.map((day) => {
-            <DetailsNextDays></DetailsNextDays>;
-          })}
-        </NextDays>
+        <NextDays tomorrow={weatherTomorrow} />
         <Hightlights contenido={weatherContent} />
+        <Footer></Footer>
       </WeatherDescription>
-
-      <Footer />
     </>
   );
 };

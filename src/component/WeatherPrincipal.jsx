@@ -92,7 +92,7 @@ const WeatherPrincipal = (props) => {
 
   return (
     <>
-      <section className='principal  min-h-screen bg-primary'>
+      <section className='principal relative lg:w-1/3 min-h-screen bg-primary'>
         <article className='px-6 py-2'>
           <div className='flex justify-between items-center'>
             <button

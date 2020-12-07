@@ -3,7 +3,7 @@ import React from 'react';
 const WeatherDescription = ({ children }) => {
   return (
     <>
-      <section className='Second  bg-second text-fontC'>
+      <section className='Second lg:w-3/5  bg-second text-fontC mx-auto my-0'>
         <div className='icons hidden'>
           <div className='icon'>
             <span className='material-icons'>mood</span>

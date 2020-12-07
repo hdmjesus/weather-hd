@@ -53,10 +53,10 @@ const Humidity = (props) => {
   });
 
   return (
-    <article className='parametros bg-primary text-center flex flex-col justify-center'>
+    <article className='parametros bg-primary text-center flex flex-col justify-center '>
       <div>
         <h3 className=''>Humidity</h3>
-        <p className='font-bold text-6xl'>
+        <p className='font-bold text-4xl'>
           {humidity}
           <span className='text-4xl font-medium'>%</span>{' '}
         </p>
